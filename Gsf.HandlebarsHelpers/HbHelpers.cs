@@ -21,6 +21,20 @@ namespace Gsf.HandlebarsHelpers
             writer.WriteSafeString(tokenBase64);
         }
 
+        /// <summary>
+        /// Handles lists of items where you don't want a trailing comma
+        ///
+        /// e.g.
+        /// {{#each Item}}
+        /// {{list_comma @index}}"{{this}}"
+        /// {{/each}}
+        ///
+        /// Would only print the comma for the second and later item
+        /// </summary>
+        /// <param name="writer"></param>
+        /// <param name="context"></param>
+        /// <param name="parameters"></param>
+        /// <exception cref="ArgumentException"></exception>
         public static void ListCommaHelper(TextWriter writer, dynamic context, object[] parameters)
         {
             if (parameters.Length != 1
