@@ -20,5 +20,17 @@ namespace Gsf.HandlebarsHelpers
 
             writer.WriteSafeString(tokenBase64);
         }
+
+        public static void ListCommaHelper(TextWriter writer, dynamic context, object[] parameters)
+        {
+            if (parameters.Length != 1
+                || parameters[0] == null
+                || !Int32.TryParse(parameters[0].ToString(), out var index))
+            {
+                throw new ArgumentException("Expected one integer parameter in ListCommaHelper");
+            }
+            
+            writer.WriteSafeString(index > 0 ? "," : string.Empty);
+        }
     }
 }
