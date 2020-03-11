@@ -18,7 +18,7 @@ namespace Gsf.HandlebarsHelpers.Test
             using var stream = new MemoryStream();
             using var writer = new StreamWriter(stream);
             using var reader = new StreamReader(stream);
-            HbHelpers.HttpBasicAuthHelper(writer, null, new []{username, password});
+            GeneralHelpers.HttpBasicAuthHelper(writer, null, new []{username, password});
             writer.Flush();
             stream.Position = 0;
             var token = reader.ReadToEnd();
@@ -37,7 +37,7 @@ namespace Gsf.HandlebarsHelpers.Test
                 Password = "api_password"
             };
 
-            Handlebars.RegisterHelper("auth_token", HbHelpers.HttpBasicAuthHelper);
+            Handlebars.RegisterHelper("auth_token", GeneralHelpers.HttpBasicAuthHelper);
             var hbTemplate = Handlebars.Compile(template);
             var final = hbTemplate(data);
 

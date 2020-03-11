@@ -21,7 +21,7 @@ namespace Gsf.HandlebarsHelpers.Test
             using var stream = new MemoryStream();
             using var writer = new StreamWriter(stream);
             using var reader = new StreamReader(stream);
-            HbHelpers.ListCommaHelper(writer, new object(), new object[] {index});
+            JsonHelpers.ListCommaHelper(writer, new object(), new object[] {index});
             writer.Flush();
             stream.Position = 0;
             var comma = reader.ReadToEnd();
@@ -41,7 +41,7 @@ namespace Gsf.HandlebarsHelpers.Test
             
             Assert.ThrowsException<ArgumentException>(() =>
             {
-                HbHelpers.ListCommaHelper(writer, new object(), new object[] {index});
+                JsonHelpers.ListCommaHelper(writer, new object(), new object[] {index});
             });
         }
 
@@ -53,7 +53,7 @@ namespace Gsf.HandlebarsHelpers.Test
                 Items = new List<string> {"one", "two", "three", "four", "five"}
             };
 
-            Handlebars.RegisterHelper("list_comma", HbHelpers.ListCommaHelper);
+            Handlebars.RegisterHelper("list_comma", JsonHelpers.ListCommaHelper);
             var template =
                 Handlebars.Compile("{\"Items\":[{{#each Items}}{{list_comma @index}}\"{{this}}\"{{/each}}]}");
             var json = template(data);

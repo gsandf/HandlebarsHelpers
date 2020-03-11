@@ -17,7 +17,7 @@ namespace Gsf.HandlebarsHelpers.Test
             using var writer = new StreamWriter(stream);
             using var reader = new StreamReader(stream);
             
-            HbHelpers.BoolHelper(writer, new object(), new [] {bl});
+            JsonHelpers.BoolHelper(writer, new object(), new [] {bl});
             writer.Flush();
             stream.Position = 0;
             var result = reader.ReadToEnd();
@@ -37,7 +37,7 @@ namespace Gsf.HandlebarsHelpers.Test
             
             Assert.ThrowsException<ArgumentException>(() =>
             {
-                HbHelpers.BoolHelper(writer, new object(), new [] {bl});
+                JsonHelpers.BoolHelper(writer, new object(), new [] {bl});
             });
         }
 
@@ -47,7 +47,7 @@ namespace Gsf.HandlebarsHelpers.Test
 
             var data = new { IsEnabled = true};
 
-            Handlebars.RegisterHelper("bool_lower", HbHelpers.BoolHelper);
+            Handlebars.RegisterHelper("bool_lower", JsonHelpers.BoolHelper);
             var template =
                 Handlebars.Compile("{{bool_lower IsEnabled}}");
             var json = template(data);
