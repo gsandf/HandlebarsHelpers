@@ -5,7 +5,7 @@ using HandlebarsDotNet;
 
 namespace Gsf.HandlebarsHelpers
 {
-    public static class HandlebarsHelpers
+    public static class HbHelpers
     {
         public static void HttpBasicAuthHelper(TextWriter writer, dynamic context, object[] parameters)
         {
