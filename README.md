@@ -1,5 +1,5 @@
 # HandlebarsHelpers
-Helpers for Handlebars.Net
+Helpers for novel, non-html, uses of Handlebars.Net
 
 ## General Helpers
 ### HTTP Basic Auth
