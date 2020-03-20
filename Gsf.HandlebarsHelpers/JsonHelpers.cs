@@ -9,6 +9,8 @@ namespace Gsf.HandlebarsHelpers
         /// <summary>
         /// For json templates, handles lists of items where you don't want a trailing comma
         ///
+        /// Requires one parameter, the index of the current element in an #each
+        /// 
         /// e.g.
         /// {{#each Item}}
         /// {{list_comma @index}}"{{this}}"
@@ -34,6 +36,8 @@ namespace Gsf.HandlebarsHelpers
 
         /// <summary>
         /// For json templates, serializes bools lowercase rather than capital
+        ///
+        /// Requires one parameter, a boolean value
         /// </summary>
         /// <param name="writer"></param>
         /// <param name="context"></param>
