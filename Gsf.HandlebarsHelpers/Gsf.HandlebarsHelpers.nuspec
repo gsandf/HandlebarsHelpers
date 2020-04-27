@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Handlebars Helpers</title>
+    <authors>$author$</authors>
+    <owners>GS and F</owners>
+    <description>Helpers for Handlebars.NET</description>
+  </metadata>
+</package>
